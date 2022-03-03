@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>solve</title>
+        <style>
+            .spinner{
+                position: absolute;
+            }
+            .inside{
+                z-index: 1;
+                opacity: 99%;
+                top: 48;
+                left: 48px;
+                height: 260px;
+                width: 260px;
+            }
+            .buttons{
+                z-index: 2;
+                position: relative;
+                top: 400px;
+            }
+            .codeToSolve{
+                position: relative;
+                top: 500px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <img class="outside spinner" src="./Outside.png" width="340px" height="340px">
+        <img class="inside spinner" src="./Inside.png" width="340px" height="340px">
+        <div class="buttons">
+            <button class="left" onclick="left()">Left</button>
+            <button class="right" onclick="right()">Right</button>
+        </div>
+    <script>
+        let rotation = 0;
+        function left (){
+            console.log('left');
+            rotation -= 13.8;
+            rotation = rotation >= 360 ? 0 : rotation
+            document.querySelector(".inside").style.transform = `rotate(${rotation}deg)`;
+        }
+        function right(){
+            console.log('right');
+            rotation += 13.8;
+            rotation = rotation >= 360 ? 0 : rotation
+            document.querySelector(".inside").style.transform = `rotate(${rotation}deg)`;
+        }
+    </script>
+    </body>
+</html>
